@@ -33,7 +33,7 @@ export const App = () => {
               <div key={todo} className="list-row">
                 <li>{todo}</li>
                 <button>完了</button>
-                <button onClick={onClickDelete(index)}>削除</button>
+                <button onClick={() => onClickDelete(index)}>削除</button>
               </div>
             );
           })}
