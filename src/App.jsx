@@ -6,6 +6,12 @@ export const App = () => {
   const [incompleteTodos, setIncompleteTodos] = useState(["aaa", "bbb", "aa"]);
   const [completeTodos, setCompleteTodos] = useState(["ccc", "ddd"]);
   const onChangeTodoText = (event) => setTodoText(event.target.value);
+  const onClickAdd = () => {
+    if (todoText === "") return;
+    const newTodos = [...incompleteTodos, todoText];
+    setIncompleteTodos(newTodos);
+    setTodoText("");
+  };
   return (
     <>
       <div className="input-area">
@@ -14,7 +20,7 @@ export const App = () => {
           value={todoText}
           onChange={onChangeTodoText}
         />
-        <button>追加</button>
+        <button onClick={onClickAdd}>追加</button>
       </div>
       <div className="incomplete-area">
         <p className="title">未完了のTODO</p>
