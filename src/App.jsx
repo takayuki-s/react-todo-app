@@ -20,6 +20,11 @@ export const App = () => {
     newTodos.splice(index, 1);
     setIncompleteTodos(newTodos);
   };
+  const onClickDeleteByComplete = (index) => {
+    const newCompleteTodos = [...completeTodos];
+    newCompleteTodos.splice(index, 1);
+    setCompleteTodos(newCompleteTodos);
+  };
   const onClickComplete = (index) => {
     const newIncompleteTodos = [...incompleteTodos];
     newIncompleteTodos.splice(index, 1);
@@ -56,7 +61,11 @@ export const App = () => {
         onClickComplete={onClickComplete}
         onClickDelete={onClickDelete}
       />
-      <CompleteTodos todos={completeTodos} onClickBack={onClickBack} />
+      <CompleteTodos
+        todos={completeTodos}
+        onClickBack={onClickBack}
+        onClickDeleteByComplete={onClickDeleteByComplete}
+      />
     </>
   );
 };
